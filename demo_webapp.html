@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+    <!--
+	-------------------------------------------------------	
+	| 20160330 | jameskrauser modify |
+	|	
+	|
+	-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>AFC Portal</title>
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/base.css">
+	</head>
+	<body>
+		
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+				
+				<!--start of navbar-header -->
+				<div class="navbar-header">
+				      <a class="navbar-brand" href="my_webapp.html">
+						<img src="imgs/logo.png" class="img-responsive">
+					  </a>
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-menu" aria-expanded="false">
+						<span class="sr-only">切換下拉選單  </span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+				 
+					</button>
+				
+					<!-- 模態視窗啟動鈕 -->
+					<button id="tweet" class="btn btn-default pull-right visible-xs-block" data-toggle="modal" data-target="#tweet-modal" >
+						<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+						發文
+					</button>				
+				</div> <!-- end of navbar-header -->
+				
+				<div id="nav-menu" class="collapse navbar-collapse">
+						<ul class="nav navbar-nav">
+							<li class="active">
+								<a href="#">
+									<span class="glyphicon glyphicon-home" aria-hidden="true"> </span>
+									首頁
+							    </a>
+							</li>
+							<li>
+							     <a href="#">
+									<span class="badge">5</span>
+									<span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
+									通知
+								</a>
+							</li>
+							<li>
+								<a href="#" role="button" data-toggle="modal" data-target="#messages-modal">
+									 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+									訊息
+								</a>							
+							</li>
+							 <li class="visible-xs-inline"> <!--網頁拉到手機大小,才會出垷  -->
+							  <a href="#">
+								<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+								個人檔案
+							  </a>
+							</li>
+							<li class="visible-xs-inline"> <!--網頁拉到手機大小,才會出垷  -->
+							  <a href="#">
+								<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+								登出
+							  </a>			
+							</li>
+						</ul>
+						
+						<button id="tweet" class="btn btn-default pull-right hidden-xs" data-toggle="modal" data-target="#tweet-modal">
+						<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+						發文
+					    </button>
+						
+						
+		  <!-- 畫面為手機大小時,選項的按鈕下拉式選單 -->
+		  <div id="nav-options" class="btn-group pull-right hidden-xs">
+             <button type="button" class="btn btn-default dropdown-toggle thumbnail" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+				<img src="imgs/jon.png">	
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">個人檔案</a></li>
+				<li><a href="settings.html">設定</a></li>
+				<li role="separator" class="divider"> </li>
+				<li><a href="#">登出</a></li>
+			</ul>		  
+		  </div>
+				 
+					
+					<form id="search" role="search" class="hidden-sm">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="搜尋...">
+							<span class="glyphicon glyphicon-search" aria-hidden="true"> </span>
+						</div>
+					</form>
+				</div> 							
+		</div> <!-- end of id container -->
+    </nav> <!-- end of nav -->
+	
+<div class="container"><!--左方一個的區塊 -->
+	<div class="row">
+		<div id="profile" class="col-md-3 hidden-sm hidden-xs" data-spy="affix" data-offset-top="0">
+				
+				<div id="profile-resume" class="card">
+					<a href="#"><img class="card-img-top img-responsive" src="imgs/jarkata_1.png"></a>
+					<div class="card-block">
+						<img src="imgs/james.png" class="card-img">
+						<h4 class="card-title">李駿明<small>@james</small></h4>
+						<p class="card-text"></p>
+						<ul class="list-inline list-unstyled">
+							<li id="card-tweets">
+								<a href="#">
+									<span class="profile-stats">待處理事項</span>
+									<span class="profile-value">11</span>
+								</a>
+							</li>
+							<li class="card-following">
+								<a href="#">
+								   <span class="profile-stats">正在關注</span>
+								   <span class="profile-value">7</span>
+								</a>
+							</li>
+							<li class="card-followers">
+							   <a href="#">
+									<span class="profile-stats">已處理事項</span>
+									<span class="profile-value">8</span>
+								</a>
+							</li>							 			
+						</ul>
+					</div><!--end of card-block -->
+				</div><!-- end of profile resume  -->
+				
+				
+				<div id="profile-photo" class="card">
+				 <div class="card-header">照片</div>
+					<div class="card-block">
+						<ul class="list-inline list-unstyled">
+							<li>
+								<a href="#" class="thumbnail"><img class="img-responsive" src="imgs/landscape-02.jpg"></a>
+							</li>
+							<li>
+								<a href="#" class="thumbnail"><img class="img-responsive" src="imgs/1.jpg"></a>
+							</li>
+							<li>
+								<a href="#" class="thumbnail"><img class="img-responsive" src="imgs/2.jpg"></a>
+							</li>
+							<li>
+								<a href="#" class="thumbnail"><img class="img-responsive" src="imgs/3.png"></a>
+							</li>
+						</ul>
+				 </div>									
+				</div> <!--end of profile-photo -->
+		    </div> <!-- end of profile-->
+			
+        <div id="main" class="col-sm-12 col-md-6">
+
+		 
+		
+          <!-- <ol class="breadcrumb card">
+            <li><a href="#">首頁</a></li>
+            <li><a href="#">個人檔案</a></li>
+            <li class="active">動態消息</li>
+          </ol> -->
+          <div class="alert alert-info hide" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3>張貼新推文</h3>
+            <div class="progress">
+              <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="">
+              </div>
+            </div>
+          </div>
+
+          <div id="main-card" class="card">
+            <form id="new-message">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="輸入資訊">
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+                </span>
+              </div>
+            </form>
+		  
+			 
+		  
+            <ul id="feed" class="list-unstyled">
+			  <li>
+					<img src="imgs/staff1.png" class="feed-avatar img-circle">
+					<div class="feed-post">
+						<h5>參數管理員<small>2017/03/02 14:00:00</small></h5>
+						<p>[黑名單參數]110版, 參數設定完成 </p>
+					</div>
+					<div class="action-list">
+						<a href="#" data-toggle="tooltip" data-placement="bottom" title="回覆">
+						<span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+						</a>
+						
+						<a href="#" data-toggle="tooltip" data-placement="bottom" title="轉通知負責人">
+						<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						<span class="retweet-count">1</span>
+					    </a>
+						
+						<a href="#" data-toggle="tooltip" dta-placement="bottom" title="重要資訊">
+						<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+						</a>
+					</div>
+			  </li>		
+			
+              <li>
+                <img src="imgs/staff2.png" class="feed-avatar img-circle">
+                <div class="feed-post">
+                  <h5>站務員1 <small>@dogeoficial - 3小時前</small></h5>
+                  <p>庫存功能驗證完成</p>
+                </div>
+                <div class="action-list">
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="回覆">
+                    <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="轉推">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    <span class="retweet-count">6</span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="棒！">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  </a>
+                </div>
+              </li>
+
+              <li>
+                <img src="imgs/staff3.png" class="feed-avatar img-circle">
+                <div class="feed-post">
+                  <h5>站務員2 <small>@spacesog - 4小時前</small></h5>
+                  <p>xx報表,驗證完成</p>
+                </div>
+                <div class="action-list">
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="回覆">
+                    <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="轉推">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    <span class="retweet-count">6</span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="棒！">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  </a>
+                </div>
+              </li>
+              <!-- 重複以建立捲軸 -->
+              <li>
+                <img src="imgs/staff4.png" class="feed-avatar img-circle">
+                <div class="feed-post">
+                  <h5>助理 <small>@dogeoficial - 3小時前</small></h5>
+                  <p>[公告]xx新功能上線,請各級人員進行測試</p>
+                </div>
+                <div class="action-list">
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="回覆">
+                    <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="轉推">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    <span class="retweet-count">6</span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="棒！">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  </a>
+                </div>
+              </li>
+
+              <li>
+                <img src="imgs/staff5.png" class="feed-avatar img-circle">
+                <div class="feed-post">
+                  <h5>助理 <small>@spacesog - 4小時前</small></h5>
+                  <p>[上版]票務功能第二次上版完成</p>
+                </div>
+                <div class="action-list">
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="回覆">
+                    <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="轉推">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    <span class="retweet-count">6</span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="棒！">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <img src="imgs/staff6.png" class="feed-avatar img-circle">
+                <div class="feed-post">
+                  <h5>主任 <small>@dogeoficial - 3小時前</small></h5>
+                  <p>[公告]車站系統將於xxxx年xx月xx日進行通車測試</p>
+                </div>
+                <div class="action-list">
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="回覆">
+                    <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="轉推">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    <span class="retweet-count">6</span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="棒！">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  </a>
+                </div>
+              </li>
+			  
+			 <!--repeat --> 
+			 		<li>
+					<img src="imgs/staff1.png" class="feed-avatar img-circle">
+					<div class="feed-post">
+						<h5>參數管理員<small>2017/03/02 14:00:00</small></h5>
+						<p>[黑名單參數]110版, 參數設定有錯 </p>
+					</div>
+					<div class="action-list">
+						<a href="#" data-toggle="tooltip" data-placement="bottom" title="回覆">
+						<span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+						</a>
+						
+						<a href="#" data-toggle="tooltip" data-placement="bottom" title="轉通知負責人">
+						<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						<span class="retweet-count">1</span>
+					    </a>
+						
+						<a href="#" data-toggle="tooltip" dta-placement="bottom" title="重要資訊">
+						<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+						</a>
+					</div>
+				</li>		
+			
+              <li>
+                <img src="imgs/staff2.png" class="feed-avatar img-circle">
+                <div class="feed-post">
+                  <h5>站務員1 <small>@dogeoficial - 3小時前</small></h5>
+                  <p>庫存功能驗證完成</p>
+                </div>
+                <div class="action-list">
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="回覆">
+                    <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="轉推">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    <span class="retweet-count">6</span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="棒！">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  </a>
+                </div>
+              </li>
+
+              <li>
+                <img src="imgs/staff3.png" class="feed-avatar img-circle">
+                <div class="feed-post">
+                  <h5>站務員2 <small>@spacesog - 4小時前</small></h5>
+                  <p>xx報表,驗證完成</p>
+                </div>
+                <div class="action-list">
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="回覆">
+                    <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="轉推">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    <span class="retweet-count">6</span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="棒！">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  </a>
+                </div>
+              </li>
+              <!-- 重複以建立捲軸 -->
+              <li>
+                <img src="imgs/staff4.png" class="feed-avatar img-circle">
+                <div class="feed-post">
+                  <h5>助理 <small>@dogeoficial - 3小時前</small></h5>
+                  <p>[公告]xx新功能上線,請各級人員進行測試</p>
+                </div>
+                <div class="action-list">
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="回覆">
+                    <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="轉推">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    <span class="retweet-count">6</span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="棒！">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  </a>
+                </div>
+              </li>
+
+              <li>
+                <img src="imgs/staff5.png" class="feed-avatar img-circle">
+                <div class="feed-post">
+                  <h5>助理 <small>@spacesog - 4小時前</small></h5>
+                  <p>[上版]票務功能第二次上版完成</p>
+                </div>
+                <div class="action-list">
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="回覆">
+                    <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="轉推">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    <span class="retweet-count">6</span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="棒！">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <img src="imgs/staff6.png" class="feed-avatar img-circle">
+                <div class="feed-post">
+                  <h5>主任 <small>@dogeoficial - 3小時前</small></h5>
+                  <p>[公告]車站系統將於xxxx年xx月xx日進行通車測試</p>
+                </div>
+                <div class="action-list">
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="回覆">
+                    <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="轉推">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    <span class="retweet-count">6</span>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="棒！">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  </a>
+                </div>
+              </li>
+
+               
+              <!-- 重複結束 -->
+            </ul>
+          </div>
+
+    	  <nav class="text-center">
+            <ul class="pagination pagination-lg">
+              <li class="disabled"><a href="#" aria-label="上一頁"><span aria-hidden="true">&laquo;</span></a></li>
+              <li class="active"><a href="#">1 <span class="sr-only">（目前頁面）</span></a></li>
+              <li><a href="#">2</a></li>
+              <li class="disabled"><a href="#">...</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#" aria-label="下一頁"><span aria-hidden="true">&raquo;</span></a></li>
+            </ul>
+          </nav>
+        </div>
+		
+		
+		<!--中間右方區塊 -->
+		<div id="right-content" class="col-md-3 hidden-sm hidden-xs">
+			<div id="who-follow" class="card">
+				<div class="card-header center-block">
+					對我提出需求的業務同仁
+				</div>
+				<div class="card-block">
+					<ul class="list-unstyled">
+					  <!-- item1 -->
+					  <li>
+						<img src="imgs/staff2.png" class="img-rounded">
+						<div class="info">
+							<strong>站務員1</strong>
+					      	<a href="#" role="button" tabindex="-1" class="btn btn-default" data-toggle="popover" data-trigger="focus" title="參數問題">
+								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>注意 
+                            </a>
+						</div>						
+					  </li>		
+				
+					  <!-- item2  -->	
+					  <li>
+						   <img src="imgs/staff5.png" class="img-rounded">
+						   <div class="info">
+								<strong>助理</strong>
+								<a href="#" role="button" tabindex="-1" class="btn btn-default" data-toggle="popover" data-trigger="focus" title="票務功能需要您測試">
+									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>注意
+								  </a>
+                           </div>
+                      </li>
+                    </ul>
+                </div>
+            </div>
+				
+	        <div id="app-info" class="card">
+				<div class="card-block">
+				information
+					<ul class="list-unstyled list-inline">
+						<li><a href="#">問題反應<a></li>
+						<li><a href="#">email: help@corp.com.tw</a></li>
+						<li><a href="#">tel:  02-26576666</a></li>
+					</ul>
+				</div>	
+				
+				<div class="card-footer">
+					<a href="#">@2017 james.corp </a>
+				</div>
+				
+			</div>		
+		</div><!--  end	  中間右方區塊 -->
+	</div>			
+	</div><!--end of row -->
+</div>	
+		<!-- modal 按下發文按鈕,會popup出的--> 
+		<div class="modal fade" id="tweet-modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times; </span>
+						</button>
+						<h4 class="modal-title">發佈訊息</h4>				
+					</div>
+					<div class="modal-body">
+						<textarea class="form-control" rows="4" placeholder="你想說什麼?" maxlength="140"></textarea>
+					</div>
+					<div class="modal-footer">
+						<span class="char-count pull-left" data-max="140">最長字元:140</span>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							關閉
+						</button>
+						<button type="button" class="btn btn-primary">
+							發文
+						</button>						
+					</div>				
+				</div><!-- modal-content -->
+			</div>
+		</div>
+		
+	<!-- modal2 當按下訊息按鈕.會POPUP出的-->
+	<div class="modal fade" id="messages-modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">需注意的資訊</h4>
+					<button type="button" class="btn btn-primary btn-message">新訊息</button>
+				</div>
+				<div class="modal-body">
+					<ul class="list-unstyled">
+						<li>
+							<a href="#">
+								<img src="imgs/staff1.png" class="img-circle">
+								<div class="msg-content">
+									<h5>參數管理員1</h5>
+									<p>黑名單參數]110版, 參數設定有錯</p>
+								</div>
+							</a>
+						</li>	
+						
+						<li>	
+							<a href="#">
+								<img src="imgs/staff2.png" class="img-circle">
+								<div class="msg-content">
+									<h5>站務員1</h5>
+									<p>庫存功能驗證完成</p>
+								</div>							
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div><!-- modal-content -->
+		</div>
+	</div>
+ 
+		
+		
+    <!-- Bootstrap 4 CDN JS -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js" integrity="sha256-+h0g0j7qusP72OZaLPCSZ5wjZLnoUUicoxbvrl14WxM= sha512-0z9zJIjxQaDVzlysxlaqkZ8L9jh8jZ2d54F3Dn36Y0a8C6eI/RFOME/tLCFJ42hfOxdclfa29lPSNCmX5ekxnw==" crossorigin="anonymous"></script> -->
+	 
+		<script src="js/jquery-1.11.3.js"></script>
+		<script src="js/bootstrap.js"></script> 
+		<script src="js/main.js"></script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
